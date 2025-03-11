@@ -1,12 +1,14 @@
-import { Input } from "@heroui/input";
+import Landing from "@/src/components/modules/home/Landing";
+import RecentPosts from "@/src/components/modules/home/RecentPosts";
+
 import React from "react";
 
 export default function Home() {
   return (
-    <section className="h-[calc(100vh-64px)] bg-[url('/foundItem.jpg')]  bg-center bg-cover">
-      <div>
-        <Input />
-      </div>
-    </section>
+    <div>
+      <Landing />
+
+      <RecentPosts />
+    </div>
   );
 }
