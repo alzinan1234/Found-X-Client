@@ -3,7 +3,12 @@ import Container from "../../ui/Container";
 import { Button } from "@heroui/button";
 import Link from "next/link";
 
-const RecentPosts = () => {
+const RecentPosts = async () => {
+  const res = await fetch(
+    "http://localhost:5000/api/v1/items?sortBy=createdAt&limit=12"
+  );
+
+  console.log("data", await res.json());
   return (
     <Container>
       <div className="section-title my-8">
