@@ -2,13 +2,12 @@ import React from "react";
 import Container from "../../ui/Container";
 import { Button } from "@heroui/button";
 import Link from "next/link";
+import { getRecentPosts } from "@/src/services/RecentPosts";
 
 const RecentPosts = async () => {
-  const res = await fetch(
-    "http://localhost:5000/api/v1/items?sortBy=createdAt&limit=12"
-  );
+  const { data: posts } = await getRecentPosts();
+  console.log(posts);
 
-  console.log("data", await res.json());
   return (
     <Container>
       <div className="section-title my-8">
@@ -19,7 +18,9 @@ const RecentPosts = async () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4  gap-10 justify-center my-8">
-        <h2 className="text-3xl"> Recent Posts</h2>
+        {posts.map((item) => (
+          <p key={item.id}>{item.title}</p>
+        ))}
       </div>
 
       <div className="flex justify-center">
