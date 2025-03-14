@@ -3,6 +3,7 @@ import Container from "../../ui/Container";
 import { Button } from "@heroui/button";
 import Link from "next/link";
 import { getRecentPosts } from "@/src/services/RecentPosts";
+import Card from "../../ui/Card";
 
 const RecentPosts = async () => {
   const { data: posts } = await getRecentPosts();
@@ -18,8 +19,8 @@ const RecentPosts = async () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4  gap-10 justify-center my-8">
-        {posts.map((item) => (
-          <p key={item.id}>{item.title}</p>
+        {posts.map((post) => (
+          <Card key={post?._id} post={post} />
         ))}
       </div>
 
