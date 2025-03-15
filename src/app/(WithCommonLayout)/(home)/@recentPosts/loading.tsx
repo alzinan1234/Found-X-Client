@@ -1,15 +1,14 @@
 import React from "react";
-import Container from "../../ui/Container";
+
 import { Button } from "@heroui/button";
 import Link from "next/link";
-import { getRecentPosts } from "@/src/services/RecentPosts";
-import Card from "../../ui/Card";
+
 import { IPost } from "@/src/types";
+import Container from "@/src/components/ui/Container";
+import Card from "@/src/components/ui/Card";
+import CardSkeleton from "@/src/components/ui/CardSkeleton";
 
 const RecentPosts = async () => {
-  const { data: posts } = await getRecentPosts();
-  console.log(posts);
-
   return (
     <Container>
       <div className="section-title my-8">
@@ -20,8 +19,8 @@ const RecentPosts = async () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4  gap-10 justify-center my-8">
-        {posts.map((post: IPost) => (
-          <Card key={post?._id} post={post} />
+        {[...Array(12)].map((post: IPost) => (
+          <CardSkeleton key={post?._id} />
         ))}
       </div>
 
