@@ -3,7 +3,7 @@ import { SearchIcon } from "../../icons";
 
 const Landing = () => {
   return (
-    <section className="h-[calc(100vh-64px)] bg-[url('/foundItem.jpg')]  bg-center bg-cover">
+    <section className="h-screen bg-[url('/lost-phone.jpg')]  bg-center bg-cover bg-no-repeat">
       <div className="pt-24 max-w-xl flex-1 mx-auto ">
         <form className="flex-1">
           <Input

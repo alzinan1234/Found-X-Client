@@ -9,7 +9,7 @@ import {
   Button,
   Avatar,
 } from "@heroui/react";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 const NavbarDropDown = () => {
