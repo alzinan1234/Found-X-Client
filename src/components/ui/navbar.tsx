@@ -7,10 +7,9 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
+
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
+
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
@@ -18,7 +17,7 @@ import clsx from "clsx";
 import { siteConfig } from "@/src/config/site";
 import { ThemeSwitch } from "@/src/components/ui/theme-switch";
 import { Logo } from "@/src/components/icons";
-import { Avatar } from "@heroui/avatar";
+
 import NavbarDropDown from "./NavbarDropDown";
 
 export const Navbar = () => {

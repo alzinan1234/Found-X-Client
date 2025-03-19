@@ -1,13 +1,13 @@
 "use client";
 
 import FXForm from "@/src/components/form/FXForm";
-// import FXForm from "@/src/components/form/FXForm";
-// import FXInput from "@/src/components/form/FXInput";
+import FXInput from "@/src/components/form/FXInput";
 import { Button } from "@heroui/button";
 import Link from "next/link";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import loginValidationSchema from "@/src/schemas/logoin.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import loginValidationSchema from "@/src/schemas/login.schemas";
 
 const LoginPage = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {

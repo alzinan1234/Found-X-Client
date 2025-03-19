@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { ReactNode } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 interface formConfig {
@@ -7,11 +9,16 @@ interface formConfig {
 }
 
 interface IProps extends formConfig {
-  children: React.ReactNode;
+  children: ReactNode;
   onSubmit: SubmitHandler<any>;
 }
 
-const FXForm = ({ children, onSubmit, defaultValues, resolver }: IProps) => {
+export default function FXForm({
+  children,
+  onSubmit,
+  defaultValues,
+  resolver,
+}: IProps) {
   const formConfig: formConfig = {};
 
   if (!!defaultValues) {
@@ -21,13 +28,14 @@ const FXForm = ({ children, onSubmit, defaultValues, resolver }: IProps) => {
   if (!!resolver) {
     formConfig["resolver"] = resolver;
   }
+
   const methods = useForm(formConfig);
+
   const submitHandler = methods.handleSubmit;
+
   return (
     <FormProvider {...methods}>
       <form onSubmit={submitHandler(onSubmit)}>{children}</form>
     </FormProvider>
   );
-};
-
-export default FXForm;
+}
