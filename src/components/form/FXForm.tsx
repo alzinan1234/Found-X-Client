@@ -1,17 +1,27 @@
 import React from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
-const FXForm = ({ children, onSubmit, defaultValues, resolver }) => {
-  const formConfig = {};
+interface formConfig {
+  defaultValues?: Record<string, any>;
+  resolver?: any;
+}
+
+interface IProps extends formConfig {
+  children: React.ReactNode;
+  onSubmit: SubmitHandler<any>;
+}
+
+const FXForm = ({ children, onSubmit, defaultValues, resolver }: IProps) => {
+  const formConfig: formConfig = {};
 
   if (!!defaultValues) {
     formConfig["defaultValues"] = defaultValues;
   }
 
   if (!!resolver) {
-    formConfig["resolver"] = defaultValues;
+    formConfig["resolver"] = resolver;
   }
-  const methods = useForm();
+  const methods = useForm(formConfig);
   const submitHandler = methods.handleSubmit;
   return (
     <FormProvider {...methods}>
