@@ -12,6 +12,7 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import registerValidationSchema from "@/src/schemas/register.schema";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
+import registerUser from "@/src/services/AuthService";
 
 export default function RegisterPage() {
   // const { mutate: handleUserRegistration, isPending } = useUserRegistration();
@@ -23,15 +24,15 @@ export default function RegisterPage() {
   //   }, [isPending]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    // const userData = {
-    //   ...data,
-    //   profilePhoto:
-    //     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-    // };
+    const userData = {
+      ...data,
+      profilePhoto:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+    };
 
-    // console.log("Inside form user data: ", userData);
+    console.log("Inside form user data: ", userData);
 
-    // handleUserRegistration(userData);
+    registerUser(userData);
     console.log(data);
   };
 
@@ -50,7 +51,7 @@ export default function RegisterPage() {
           defaultValues={{
             name: "Al Zinan",
             email: "alZinan314@gmail.com",
-            mobileNumber: "01711223344",
+            mobileNumber: "01788499970",
             password: "123456",
           }}
           resolver={zodResolver(registerValidationSchema)}
