@@ -13,15 +13,11 @@ import registerValidationSchema from "@/src/schemas/register.schema";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
 import registerUser from "@/src/services/AuthService";
+import { useUserRegistration } from "@/src/hooks/auth.hook";
+import { useEffect } from "react";
 
 export default function RegisterPage() {
-  // const { mutate: handleUserRegistration, isPending } = useUserRegistration();
-
-  //   useEffect(() => {
-  //     if (isPending) {
-  //       // Handle Loading satate
-  //     }
-  //   }, [isPending]);
+  const { mutate: handleUserRegistration, isPending } = useUserRegistration();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const userData = {
@@ -32,13 +28,13 @@ export default function RegisterPage() {
 
     console.log("Inside form user data: ", userData);
 
-    registerUser(userData);
+    handleUserRegistration(userData);
     console.log(data);
   };
 
-  // if (isPending) {
-  //   //  handle loading state
-  // }
+  if (isPending) {
+    //  handle loading state
+  }
 
   return (
     <div className="flex h-[calc(100vh-100px)] flex-col items-center justify-center">

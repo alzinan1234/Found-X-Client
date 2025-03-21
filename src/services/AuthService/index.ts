@@ -13,6 +13,7 @@ const registerUser = async (userData: FieldValues) => {
       cookieStore.set("accessToken", data?.data?.accessToken);
       cookieStore.set("refreshToken", data?.data?.refreshToken);
     }
+    return data;
   } catch (error) {
     console.log(error);
   }
