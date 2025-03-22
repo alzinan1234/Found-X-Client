@@ -8,10 +8,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import loginValidationSchema from "@/src/schemas/login.schemas";
+import { useUserLogin } from "@/src/hooks/auth.hook";
 
 const LoginPage = () => {
+  const { mutate: handleUserLogin, isPending } = useUserLogin();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    handleUserLogin(data);
   };
 
   return (
