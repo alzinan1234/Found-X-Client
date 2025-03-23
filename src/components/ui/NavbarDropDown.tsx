@@ -11,6 +11,7 @@ import {
 } from "@heroui/react";
 
 import { useRouter } from "next/navigation";
+import { logout } from "@/src/services/AuthService";
 
 const NavbarDropDown = () => {
   const router = useRouter();
@@ -36,7 +37,12 @@ const NavbarDropDown = () => {
             Setting
           </DropdownItem>
 
-          <DropdownItem key="delete" className="text-danger" color="danger">
+          <DropdownItem
+            onClick={() => logout()}
+            key="delete"
+            className="text-danger"
+            color="danger"
+          >
             Log Out
           </DropdownItem>
         </DropdownMenu>

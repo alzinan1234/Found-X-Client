@@ -30,7 +30,6 @@ export default function RegisterPage() {
     console.log("Inside form user data: ", userData);
 
     handleUserRegistration(userData);
-    console.log(data);
   };
 
   return (
