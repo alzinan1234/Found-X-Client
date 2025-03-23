@@ -13,14 +13,17 @@ import Loading from "@/src/components/ui/Loading";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { useEffect } from "react";
+import { useUser } from "@/src/context/user.provider";
 
 const LoginPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { setIsLoading: userLoading } = useUser();
   const redirect = searchParams.get("redirect");
   const { mutate: handleUserLogin, isPending, isSuccess } = useUserLogin();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     handleUserLogin(data);
+    userLoading(true);
   };
 
   useEffect(() => {

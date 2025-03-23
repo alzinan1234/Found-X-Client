@@ -12,9 +12,16 @@ import {
 
 import { useRouter } from "next/navigation";
 import { logout } from "@/src/services/AuthService";
+import { useUser } from "@/src/context/user.provider";
 
 const NavbarDropDown = () => {
   const router = useRouter();
+  const { setIsLoading: userLoading } = useUser();
+
+  const handleLogout = () => {
+    logout();
+    userLoading(true);
+  };
   const handleNavigator = (pathname: string) => {
     router.push(pathname);
   };
@@ -38,7 +45,7 @@ const NavbarDropDown = () => {
           </DropdownItem>
 
           <DropdownItem
-            onClick={() => logout()}
+            onClick={() => handleLogout()}
             key="delete"
             className="text-danger"
             color="danger"
