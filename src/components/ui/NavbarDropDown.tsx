@@ -16,7 +16,7 @@ import { useUser } from "@/src/context/user.provider";
 
 const NavbarDropDown = () => {
   const router = useRouter();
-  const { setIsLoading: userLoading } = useUser();
+  const { user, setIsLoading: userLoading } = useUser();
 
   const handleLogout = () => {
     logout();
@@ -29,7 +29,7 @@ const NavbarDropDown = () => {
     <div>
       <Dropdown>
         <DropdownTrigger>
-          <Avatar className="cursor-pointer" name="Al Zinan" />
+          <Avatar className="cursor-pointer" src={user?.profilePhoto} />
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">
           <DropdownItem onClick={() => handleNavigator("/profile")}>
