@@ -10,7 +10,7 @@ const Card = ({ post }: { post: IPost }) => {
 
   return (
     <NextUiCard isFooterBlurred className="h-[300px] w-full">
-      <CardHeader className="absolute top-1 z-20 flex-col items-start">
+      <CardHeader className="absolute top-1 z-10 flex-col items-start">
         <p className="absolute -top-0 right-1 rounded-full bg-black px-2 text-tiny uppercase text-white/90">
           {category?.name}
         </p>
