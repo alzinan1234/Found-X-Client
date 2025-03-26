@@ -1,4 +1,5 @@
 import { Input } from "@heroui/input";
+
 import { SearchIcon } from "../../icons";
 
 const Landing = () => {

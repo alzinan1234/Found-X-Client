@@ -1,6 +1,6 @@
-import Landing from "@/src/components/modules/home/Landing";
-
 import React from "react";
+
+import Landing from "@/src/components/modules/home/Landing";
 
 export default function Home() {
   return (

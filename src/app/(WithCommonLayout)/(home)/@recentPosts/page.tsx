@@ -1,15 +1,15 @@
 import React from "react";
-
 import { Button } from "@heroui/button";
 import Link from "next/link";
-import { getRecentPosts } from "@/src/services/RecentPosts";
 
+import { getRecentPosts } from "@/src/services/RecentPosts";
 import { IPost } from "@/src/types";
 import Container from "@/src/components/ui/Container";
 import Card from "@/src/components/ui/Card";
 
 const RecentPosts = async () => {
   const { data: posts } = await getRecentPosts();
+
   console.log(posts);
 
   return (

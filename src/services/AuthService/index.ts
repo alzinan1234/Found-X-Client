@@ -1,9 +1,10 @@
 "use server";
 
-import axiosInstance from "@/src/lib/AxiosInstance";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
+
+import axiosInstance from "@/src/lib/AxiosInstance";
 
 export const registerUser = async (userData: FieldValues) => {
   try {
@@ -11,6 +12,7 @@ export const registerUser = async (userData: FieldValues) => {
 
     if (data.success) {
       const cookieStore = await cookies();
+
       cookieStore.set("accessToken", data?.data?.accessToken);
       cookieStore.set("refreshToken", data?.data?.refreshToken);
     }
@@ -27,6 +29,7 @@ export const loginUser = async (userData: FieldValues) => {
 
     if (data.success) {
       const cookieStore = await cookies();
+
       cookieStore.set("accessToken", data?.data?.accessToken);
       cookieStore.set("refreshToken", data?.data?.refreshToken);
     }
@@ -39,6 +42,7 @@ export const loginUser = async (userData: FieldValues) => {
 
 export const logout = async () => {
   const cookieStore = await cookies();
+
   cookieStore.delete("accessToken");
   cookieStore.delete("refreshToken");
 };
@@ -51,6 +55,7 @@ export const getCurrentUser = async () => {
 
   if (accessToken) {
     decodedToken = await jwtDecode(accessToken);
+
     return {
       _id: decodedToken._id,
       name: decodedToken.name,

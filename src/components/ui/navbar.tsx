@@ -9,22 +9,21 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-
 import { Link } from "@heroui/link";
-
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
+import NavbarDropDown from "./NavbarDropDown";
+
 import { siteConfig } from "@/src/config/site";
 import { ThemeSwitch } from "@/src/components/ui/theme-switch";
 import { Logo } from "@/src/components/icons";
-
-import NavbarDropDown from "./NavbarDropDown";
 import { useUser } from "@/src/context/user.provider";
 
 export const Navbar = () => {
   const { user } = useUser();
+
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -40,7 +39,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  "data-[active=true]:text-primary data-[active=true]:font-medium",
                 )}
                 color="foreground"
                 href={item.href}
@@ -64,8 +63,11 @@ export const Navbar = () => {
             <NavbarDropDown />
           </NavbarItem>
         ) : (
-          <NavbarItem className="hidden sm:flex gap-2 bg-orange-500 text-black p-2 px-7">
-            <Link href="/login">Login</Link>
+          <NavbarItem className="hidden sm:flex gap-2 ">
+            <button className="bg-orange-500 text-black p-2 px-7">
+              {" "}
+              <Link href="/login">Login</Link>
+            </button>
           </NavbarItem>
         )}
       </NavbarContent>

@@ -9,12 +9,11 @@ import { Button } from "@heroui/button";
 import Link from "next/link";
 // import { useEffect } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+
 import registerValidationSchema from "@/src/schemas/register.schema";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
-
 import { useUserRegistration } from "@/src/hooks/auth.hook";
-import { useEffect } from "react";
 import Loading from "@/src/components/ui/Loading";
 
 export default function RegisterPage() {

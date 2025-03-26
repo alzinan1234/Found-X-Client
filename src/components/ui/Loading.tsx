@@ -9,8 +9,8 @@ const Loading = () => {
           label: "text-foreground mt-4 font-bold text-purple-500 text-xl",
         }}
         label="Just a Moment... 🚀  "
-        variant="spinner"
         size="lg"
+        variant="spinner"
       />
     </div>
   );

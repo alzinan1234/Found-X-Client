@@ -1,11 +1,9 @@
 import React from "react";
-
 import { Button } from "@heroui/button";
 import Link from "next/link";
 
 import { IPost } from "@/src/types";
 import Container from "@/src/components/ui/Container";
-import Card from "@/src/components/ui/Card";
 import CardSkeleton from "@/src/components/ui/CardSkeleton";
 
 const RecentPosts = async () => {

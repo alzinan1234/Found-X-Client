@@ -6,10 +6,12 @@ import {
   useEffect,
   useState,
 } from "react";
+
 import { IUser } from "../types";
 import { getCurrentUser } from "../services/AuthService";
 
 const UserContext = createContext<IUserProvider | undefined>(undefined);
+
 interface IUserProvider {
   user: IUser | null;
   setUser: (user: IUser) => void;
@@ -23,6 +25,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   const handleUser = async () => {
     const user = await getCurrentUser();
+
     setUser(user);
     setIsLoading(false);
   };
@@ -40,9 +43,11 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useUser = () => {
   const context = useContext(UserContext);
+
   if (context === undefined) {
     throw new Error("useUser must be used within a UserProvider");
   }
+
   return context;
 };
 

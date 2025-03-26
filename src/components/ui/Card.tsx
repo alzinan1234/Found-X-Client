@@ -1,9 +1,9 @@
 "use client";
 import { CardFooter, CardHeader, Card as NextUiCard } from "@heroui/card";
-
 import { format } from "date-fns";
-import { IPost } from "@/src/types";
 import { Button, Image } from "@heroui/react";
+
+import { IPost } from "@/src/types";
 
 const Card = ({ post }: { post: IPost }) => {
   const { title, category, images, city, dateFound, _id } = post || {};

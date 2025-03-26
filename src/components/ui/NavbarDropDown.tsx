@@ -6,25 +6,32 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Button,
   Avatar,
 } from "@heroui/react";
+import { usePathname, useRouter } from "next/navigation";
 
-import { useRouter } from "next/navigation";
 import { logout } from "@/src/services/AuthService";
 import { useUser } from "@/src/context/user.provider";
+import { protectRoutes } from "@/src/constant";
 
 const NavbarDropDown = () => {
   const router = useRouter();
-  const { user, setIsLoading: userLoading } = useUser();
+  const pathName = usePathname();
+  const { user, setIsLoading } = useUser(); // Ensure setIsLoading is correctly used
 
   const handleLogout = () => {
     logout();
-    userLoading(true);
+    setIsLoading(true); // Ensure loading state is updated
+
+    if (protectRoutes.some((route) => pathName.match(route))) {
+      router.push("/");
+    }
   };
+
   const handleNavigator = (pathname: string) => {
     router.push(pathname);
   };
+
   return (
     <div>
       <Dropdown>
@@ -45,10 +52,10 @@ const NavbarDropDown = () => {
           </DropdownItem>
 
           <DropdownItem
-            onClick={() => handleLogout()}
-            key="delete"
+            key="logout"
             className="text-danger"
             color="danger"
+            onClick={handleLogout}
           >
             Log Out
           </DropdownItem>
