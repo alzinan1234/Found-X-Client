@@ -216,7 +216,7 @@ export default function CreatePost() {
             <Divider className="my-5" />
             <div className="flex justify-end">
               <Button size="lg" type="submit">
-                Post
+                POST
               </Button>
             </div>
           </form>
