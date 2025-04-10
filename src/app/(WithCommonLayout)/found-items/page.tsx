@@ -3,7 +3,7 @@ import React from "react";
 const Page = () => {
   return (
     <div>
-      <h5>this is found items page</h5>
+      <h2>this is found items </h2>
     </div>
   );
 };
