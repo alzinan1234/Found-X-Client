@@ -12,7 +12,6 @@ import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Divider } from "@heroui/react";
 
-import { useGetCategories } from "@/src/hooks/categoreis.hook";
 import FXTextarea from "@/src/components/form/FXTextArea";
 import { AddIcon, TrashIcon } from "@/src/assets/icons";
 import { useUser } from "@/src/context/user.provider";
@@ -22,6 +21,7 @@ import FXInput from "@/src/components/form/FXInput";
 import FXDatePicker from "@/src/components/form/FXDatePicker";
 import dateToISO from "@/src/utils/dateToISO";
 import FXSelect from "@/src/components/form/FXSelect";
+import { useGetCategories } from "@/src/hooks/categories.hook";
 
 const cityOptions = allDistict()
   .sort()
