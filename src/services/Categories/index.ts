@@ -1,11 +1,13 @@
-import AxiosInstance from "@/src/lib/AxiosInstance";
+"use server";
+
+import axiosInstance from "@/src/lib/AxiosInstance";
 
 export const getCategories = async () => {
   try {
-    const { data } = await AxiosInstance.get("/categories");
+    const { data } = await axiosInstance.get("/item-categories");
+
     return data;
   } catch (error: any) {
-    console.error("Error fetching categories:", error);
-    throw error;
+    throw new Error(error.message);
   }
 };

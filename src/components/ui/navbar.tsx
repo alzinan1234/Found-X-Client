@@ -18,7 +18,7 @@ import NavbarDropDown from "./NavbarDropDown";
 
 import { siteConfig } from "@/src/config/site";
 import { ThemeSwitch } from "@/src/components/ui/theme-switch";
-import { Logo } from "@/src/components/icons";
+import { Logo } from "@/src/assets/icons";
 import { useUser } from "@/src/context/user.provider";
 
 export const Navbar = () => {
@@ -39,7 +39,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
                 href={item.href}

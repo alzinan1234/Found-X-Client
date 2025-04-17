@@ -12,16 +12,17 @@ import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Divider } from "@heroui/react";
 
-import FXTextarea from "@/src/components/form/FXTextArea";
-import { AddIcon, TrashIcon } from "@/src/assets/icons";
 import { useUser } from "@/src/context/user.provider";
-import { useCreatePost } from "@/src/hooks/post.hook";
+
 import Loading from "@/src/components/ui/Loading";
 import FXInput from "@/src/components/form/FXInput";
 import FXDatePicker from "@/src/components/form/FXDatePicker";
 import dateToISO from "@/src/utils/dateToISO";
 import FXSelect from "@/src/components/form/FXSelect";
 import { useGetCategories } from "@/src/hooks/categories.hook";
+import { AddIcon, TrashIcon } from "@/src/assets/icons";
+import FXTextarea from "@/src/components/form/FXTextArea";
+import { useCreatePost } from "@/src/hooks/post.hook";
 
 const cityOptions = allDistict()
   .sort()

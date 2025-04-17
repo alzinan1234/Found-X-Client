@@ -12,7 +12,6 @@ export const registerUser = async (userData: FieldValues) => {
 
     if (data.success) {
       const cookieStore = await cookies();
-
       cookieStore.set("accessToken", data?.data?.accessToken);
       cookieStore.set("refreshToken", data?.data?.refreshToken);
     }
@@ -29,7 +28,6 @@ export const loginUser = async (userData: FieldValues) => {
 
     if (data.success) {
       const cookieStore = await cookies();
-
       cookieStore.set("accessToken", data?.data?.accessToken);
       cookieStore.set("refreshToken", data?.data?.refreshToken);
     }
@@ -42,7 +40,6 @@ export const loginUser = async (userData: FieldValues) => {
 
 export const logout = async () => {
   const cookieStore = await cookies();
-
   cookieStore.delete("accessToken");
   cookieStore.delete("refreshToken");
 };
