@@ -3,7 +3,7 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      <h1>this is claim requests page</h1>
+      <h4>this is claim reqiest page </h4>
     </div>
   );
 };
