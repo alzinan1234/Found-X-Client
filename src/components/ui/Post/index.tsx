@@ -6,13 +6,14 @@ import Link from "next/link";
 
 import { IPost, IUser } from "@/src/types";
 
-import { Button } from "@nextui-org/button";
-import ImageGallery from "./ImageGallery";
-import ClaimRequestModal from "../../modals/ClaimRequestModal";
 import { useUser } from "@/src/context/user.provider";
-import AuthenticationModal from "../../modals/AuthenticationModal";
+
 import { Avatar } from "@heroui/avatar";
 import { Calendar, MapPin } from "lucide-react";
+import ClaimRequestModal from "../../modals/ClaimRequestModal";
+import AuthenticationModal from "../../modals/AuthenticationModal";
+import { Button } from "@heroui/button";
+import ImageGallery from "./ImageGallery";
 
 interface IProps {
   post: IPost;
