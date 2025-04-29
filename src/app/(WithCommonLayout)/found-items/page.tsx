@@ -1,5 +1,6 @@
 import Container from "@/src/components/ui/Container";
-import Post from "@/src/components/UI/Post";
+import Post from "@/src/components/ui/Post";
+
 import axiosInstance from "@/src/lib/AxiosInstance";
 import { IPost } from "@/src/types";
 
