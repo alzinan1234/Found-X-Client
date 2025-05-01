@@ -1,19 +1,18 @@
 "use client";
 
 import { format } from "date-fns";
-// import { Calendar, MapPin } from "lucide-react";
-import Link from "next/link";
-
-import { IPost, IUser } from "@/src/types";
-
-import { useUser } from "@/src/context/user.provider";
-
-import { Avatar } from "@heroui/avatar";
 import { Calendar, MapPin } from "lucide-react";
+import Link from "next/link";
+import { Avatar } from "@heroui/avatar";
+import { Button } from "@heroui/button";
+
 import ClaimRequestModal from "../../modals/ClaimRequestModal";
 import AuthenticationModal from "../../modals/AuthenticationModal";
-import { Button } from "@heroui/button";
+
 import ImageGallery from "./ImageGallery";
+
+import { IPost, IUser } from "@/src/types";
+import { useUser } from "@/src/context/user.provider";
 
 interface IProps {
   post: IPost;
@@ -36,6 +35,11 @@ export default function Post({ post }: IProps) {
 
   const { user: loggedInUser } = useUser();
 
+  // Ensure consistent date formatting
+  const formattedDate = dateFound
+    ? format(new Date(dateFound), "dd MMM, yyyy")
+    : "";
+
   return (
     <div className="mb-2 rounded-md bg-default-100 p-4">
       <div className="border-b border-default-200 pb-2">
@@ -56,7 +60,7 @@ export default function Post({ post }: IProps) {
               </Link>
               <p className="flex items-center gap-1 text-xs">
                 Found on: <Calendar width={14} />
-                {format(new Date(dateFound), "dd MMM, yyyy")}
+                {formattedDate}
               </p>
             </div>
             <div>
@@ -83,7 +87,7 @@ export default function Post({ post }: IProps) {
           {email !== loggedInUser?.email && (
             <div className="w-[1px] bg-default-200" />
           )}
-          <Button variant="light" className="flex-1">
+          <Button className="flex-1" variant="light">
             Share
           </Button>
         </div>

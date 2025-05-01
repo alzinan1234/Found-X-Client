@@ -6,7 +6,6 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@heroui/react";
-
 import { ReactNode } from "react";
 
 interface IProps {
@@ -45,11 +44,10 @@ export default function FXModal({
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
-              <ModalBody>{children}</ModalBody>
-              {/* <ModalFooter>
+          <>
+            <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
+            <ModalBody>{children}</ModalBody>
+            {/* <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
@@ -57,8 +55,7 @@ export default function FXModal({
                   Action
                 </Button>
               </ModalFooter> */}
-            </>
-          )}
+          </>
         </ModalContent>
       </Modal>
     </>
